@@ -54,7 +54,7 @@
     "editor.detectIndentation": true,
     "editor.snippetSuggestions": "bottom",
     "editor.wordWrap": "wordWrapColumn",
-    "editor.wordWrapColumn": 115,
+    "editor.wordWrapColumn": 240,
     "diffEditor.wordWrap": "on",
   	"html.suggest.html5": true,
     "editor.bracketPairColorization.enabled": true,

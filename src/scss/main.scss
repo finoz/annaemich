@@ -1,3 +1,49 @@
+@charset "UTF-8";
+
+@use '~modern-normalize/modern-normalize';
+@use './helpers' as *;
+
 body {
-    color: red;
+    color: var(--blue);
+    background-color: var(--white-dirty);
+    font-family: 'Fira Sans Condensed', sans-serif;
+}
+.page {
+    @include container($bp-desktop-xl, flex);
+    flex-direction: column;
+    text-align: center;
+    &-content {
+        padding: 4vh 1.5rem;
+        a,
+        a:active,
+        a:visited {
+            color: inherit;
+            text-decoration: none;
+        }
+    }
+}
+
+.content {
+    &-highlight {
+        display: block;
+        font-size: 3.6rem;
+    }
+    &-title {
+        font-size: 2.4rem;
+    }
+    &-note {
+        font-size: 1.8rem;
+    }
+    &-quote {
+        font-size: 3rem;
+        font-family: 'EB Garamond', serif;
+        max-width: 20rem;
+        margin: 0 auto;
+        &::before {
+            content: "“";
+        }
+        &::after {
+            content: "”";
+        }
+    }
 }
