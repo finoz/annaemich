@@ -51,7 +51,7 @@
     "editor.tabSize": 4,
     "editor.insertSpaces": false,
     "editor.formatOnSave": true,
-    "editor.detectIndentation": true,
+    "editor.detectIndentation": false,
     "editor.snippetSuggestions": "bottom",
     "editor.wordWrap": "wordWrapColumn",
     "editor.wordWrapColumn": 240,

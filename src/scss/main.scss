@@ -2,48 +2,131 @@
 
 @use '~modern-normalize/modern-normalize';
 @use './helpers' as *;
+@use './common' as *;
 
 body {
-    color: var(--blue);
-    background-color: var(--white-dirty);
-    font-family: 'Fira Sans Condensed', sans-serif;
+	color: var(--blue);
+	background-color: var(--white-dirty);
+	@extend %font-base !optional;
 }
 .page {
-    @include container($bp-desktop-xl, flex);
-    flex-direction: column;
-    text-align: center;
-    &-content {
-        padding: 4vh 1.5rem;
-        a,
-        a:active,
-        a:visited {
-            color: inherit;
-            text-decoration: none;
-        }
-    }
+	@include container($bp-desktop-xl, flex);
+	flex-direction: column;
+	text-align: center;
+	&-content {
+		padding: 4vh 1.5rem;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		a,
+		a:active,
+		a:visited {
+			color: inherit;
+			text-decoration: none;
+		}
+	}
 }
 
 .content {
-    &-highlight {
-        display: block;
-        font-size: 3.6rem;
-    }
-    &-title {
-        font-size: 2.4rem;
-    }
-    &-note {
-        font-size: 1.8rem;
-    }
-    &-quote {
-        font-size: 3rem;
-        font-family: 'EB Garamond', serif;
-        max-width: 20rem;
-        margin: 0 auto;
-        &::before {
-            content: "“";
-        }
-        &::after {
-            content: "”";
-        }
-    }
+	&-title {
+		font-size: 2.4rem;
+		font-weight: 400;
+	}
+	&-subtitle {
+		font-size: 2.4rem;
+		font-weight: 300;
+	}
+	&-note {
+		font-size: 1.6rem;
+	}
+	&-decoration {
+		max-width: 16rem;
+		margin: 0 auto;
+		padding: 5vh 1.5rem;
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+}
+.page-content {
+	.section-decoration {
+		max-width: 12rem;
+		margin: 0 auto;
+		padding: 2rem 1.5rem 1rem 1.5rem;
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+	&--intro {
+		.content-title {
+			display: block;
+			font-weight: 400;
+			font-size: 3.6rem;
+			margin-bottom: 1rem;
+		}
+		.content-note {
+			font-size: 2rem;
+		}
+	}
+	&--quote {
+		.content-quote {
+			max-width: 20rem;
+			margin: 0 auto;
+			padding: 4rem 1.5rem 2rem 1.5rem;
+			&-cit {
+				position: relative;
+				font-size: 3rem;
+				font-style: italic;
+				margin: 0;
+				z-index: 1;
+				&::before,
+				&::after {
+					font-family: 'georgia';
+					font-size: 16rem;
+					font-style: normal;
+					color: #efeed0;
+					position: absolute;
+					z-index: -1;
+					left: 50%;
+					margin-left: -3.2rem;
+				}
+				&::before {
+					top: -30%;
+					content: "“";
+				}
+				&::after {
+					top: 75%;
+					content: "”";
+				}
+			}
+			&-ref {
+				position: relative;
+				z-index: 2;
+				display: block;
+				margin-top: 3rem;
+				font-style: normal;
+				font-size: 1.2rem;
+			}
+		}
+	}
+	&--messa {
+		.content-subtitle {
+			margin-bottom: 1.5rem;
+		}
+		.content-note {
+			margin-top: 0.5rem;
+		}
+	}
+	&--festa {
+		.content-title {
+			margin-top: 0.5rem;
+			margin-bottom: 1.5rem;
+		}
+	}
+	&--dona {
+		padding-bottom: 6rem;
+	}
 }

@@ -8,36 +8,59 @@
 	<meta name="description" content="11 febbraio 2023 - Viva gli sposi">
 
 	<link rel="stylesheet" href="./dist/main.css">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital@0;1&family=Fira+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
+	<link rel="preload" href="./assets/fonts/OpenSans_Condensed-Light.ttf" as="font" type="font/ttf" crossorigin="" />
+	<link rel="preload" href="./assets/fonts/OpenSans_Condensed-Regular.ttf" as="font" type="font/ttf" crossorigin="" />
+	<style>
+		@font-face {
+			font-family: 'Open Sans Condensed';
+			src: url('./assets/fonts/OpenSans_Condensed-Light.ttf') format('truetype');
+			font-weight: 300;
+			font-style: normal;
+			font-display: swap;
+		}
+	
+		@font-face {
+			font-family: 'Open Sans Condensed';
+			src: url('./assets/fonts/OpenSans_Condensed-Regular.ttf') format('truetype');
+			font-weight: 400;
+			font-style: normal;
+			font-display: swap;
+		}
+	</style>
 </head>
 <body>
 	<main class="page" id="main">
-		<section class="page-content">
-			<p class="content-quote">perché tra le vicende del mondo là siano fissi i nostri cuori dove è la vera gioia</p>
-		</section>
-		<section class="page-content">
+		<figure class="content-decoration"><img src="./assets/images/foglie-04.png" alt=""></figure>
+		<section class="page-content page-content--intro">
 			<h1>
-				<span class="content-highlight">ANNA e MICHELE</span>
+				<span class="content-title">ANNA e MICHELE</span>
 				<span class="content-note">sono felici di annunciare il loro matrimonio</span>
 			</h1>
 		</section>
-		<section class="page-content">
+		<section class="page-content page-content--quote">
+			<blockquote class="content-quote">
+				<p class="content-quote-cit">perché fra le vicende del mondo là siano fissi i nostri cuori dove è la vera gioia</p>
+				<cite class="content-quote-ref">Dalla Liturgia</cite>
+			</blockquote>
+		</section>
+		<section class="page-content page-content--messa">
 			<p class="content-title">Sabato 11 febbraio</p>
-			<p class="content-note">ore 11.00</p>
+			<p class="content-subtitle">ore 11.00</p>
+			<p class="content-title">Chiesa San Carlo</p>
+			<p class="content-note"><a href="https://www.google.it/maps/place/Chiesa+Parrocchiale+di+San+Carlo/@45.5386504,9.1331324,17z/data=!3m1!4b1!4m12!1m6!3m5!1s0x4786bff57e322263:0xa56c02b822347bf0!2sChiesa+Parrocchiale+di+San+Carlo!8m2!3d45.5386441!4d9.1352916!3m4!1s0x4786bff57e322263:0xa56c02b822347bf0!8m2!3d45.5386441!4d9.1352916" target="_blank">Via Gran Paradiso 2<br>Novate Milanese</a></p>
 		</section>
-		<section class="page-content">
-			<p class="content-title">Chiesa di San Carlo</p>
-			<p class="content-note">Novate milanese</p>
-		</section>
-		<section class="page-content">
-			<p class="content-note">Dopo la cerimonia festeggeremo insieme presso</p>
+		<figure class="content-decoration"><img src="./assets/images/foglie-02.png" alt=""></figure>
+		<section class="page-content page-content--festa">
+			<p class="content-note">Dopo la cerimonia<br>festeggeremo insieme presso</p>
 			<p class="content-title">Villa Resta Mari</p>
-			<p class="content-note">Piazza Giuseppe Resta 9<br>Vittuone (MI)</p>
+			<p class="content-note"><a href="https://www.google.it/maps/place/Villa+Resta+Mari/@45.4865683,8.9498796,17z/data=!3m1!4b1!4m5!3m4!1s0x4786edd1fdd0a10f:0x2708f8e17df77f04!8m2!3d45.4865646!4d8.9520683" target="_blank">Piazza Giuseppe Resta 9<br>Vittuone (MI)</a></p>
+			<figure class="section-decoration"><img src="./assets/images/foglie-00.png" alt=""></figure>
+			<p class="content-title"><a href="javascript:alert('Callme maybe')">RSVP</a></p>
 		</section>
-		<section class="page-content">
-				<p class="content-title"><a href="javascript:alert('Callme maybe')">RSVP</a></p>
+		<figure class="content-decoration"><img src="./assets/images/foglie-01.png" alt=""></figure>
+		<section class="page-content page-content--dona">
+			<p class="content-title">Aiutati che il ciel t'aiuta</p>
+			<p class="content-note">IBAN</p>
 		</section>
 	</main>
 </body>
