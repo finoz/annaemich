@@ -13,6 +13,7 @@ body {
 	@include container($bp-desktop-xl, flex);
 	flex-direction: column;
 	text-align: center;
+	padding-bottom: 6rem;
 	&-content {
 		padding: 4vh 1.5rem;
 		display: flex;
@@ -47,6 +48,27 @@ body {
 		img {
 			width: 100%;
 			height: auto;
+		}
+	}
+	&-cta {
+		margin: 1rem auto 1rem auto;
+		font-size: 1.4rem;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		gap: 0.5rem;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		
+		&::before,
+		&::after {
+			content: "";
+			position: relative;
+			top: 1px;
+			width: 2rem;
+			height: 1px;
+			border-top: 1px solid currentColor;
 		}
 	}
 }
@@ -87,7 +109,7 @@ body {
 					font-family: 'georgia';
 					font-size: 16rem;
 					font-style: normal;
-					color: #efeed0;
+					color: var(--greenish);
 					position: absolute;
 					z-index: -1;
 					left: 50%;
@@ -127,6 +149,36 @@ body {
 		}
 	}
 	&--dona {
-		padding-bottom: 6rem;
+		.content-cta {
+			margin-top: 4rem;
+		}
+	}
+	&--grazie {
+		position: relative;
+		max-width: 36rem;
+		margin: 0 auto;
+		img {
+			border-radius: 3px;
+		}
+		figcaption {
+			position: absolute;
+			top: -7vw;
+			right: -2vw;
+			font-family: 'georgia';
+			font-size: 16vw;
+			line-height: 0.5;
+			font-style: normal;
+			color: var(--greenish);
+			filter: invert(0.9);
+			text-align: right;
+			> span {
+				font-size: 50%;
+			}
+			@include breakpoint('tablet-portrait') {
+				font-size: 3rem;
+				top: -1.2rem;
+				right: -0.5rem;
+			}
+		}
 	}
 }
