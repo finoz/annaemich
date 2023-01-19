@@ -1,6 +1,7 @@
 @charset "UTF-8";
 
 @use '~modern-normalize/modern-normalize';
+@use './vendors' as *;
 @use './helpers' as *;
 @use './common' as *;
 
@@ -20,6 +21,123 @@ body {
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
+		.section-decoration {
+			max-width: 12rem;
+			margin: 0 auto;
+			padding: 2rem 1.5rem 1rem 1.5rem;
+			img {
+				width: 100%;
+				height: auto;
+			}
+		}
+		&--intro {
+			.content-title {
+				display: block;
+				font-weight: 400;
+				font-size: 3.6rem;
+				margin-bottom: 1rem;
+			}
+			.content-note {
+				font-size: 2rem;
+			}
+		}
+		&--quote {
+			.content-quote {
+				max-width: 20rem;
+				margin: 0 auto;
+				padding: 4rem 1.5rem 2rem 1.5rem;
+				&-cit {
+					position: relative;
+					font-size: 3rem;
+					font-style: italic;
+					margin: 0;
+					z-index: 1;
+					&::before,
+					&::after {
+						font-family: 'georgia';
+						font-size: 16rem;
+						font-style: normal;
+						color: var(--greenish);
+						position: absolute;
+						z-index: -1;
+						left: 50%;
+						margin-left: -3.2rem;
+					}
+					&::before {
+						top: -30%;
+						content: "“";
+					}
+					&::after {
+						top: 75%;
+						content: "”";
+					}
+				}
+				&-ref {
+					position: relative;
+					z-index: 2;
+					display: block;
+					margin-top: 3rem;
+					font-style: normal;
+					font-size: 1.2rem;
+				}
+			}
+		}
+		&--messa {
+			.content-subtitle {
+				margin-bottom: 1.5rem;
+			}
+			.content-note {
+				margin-top: 0.5rem;
+			}
+		}
+		&--festa {
+			.content-title {
+				margin-top: 0.5rem;
+				margin-bottom: 1.5rem;
+			}
+		}
+		&--dona {
+			.content-title {
+				margin-bottom: 1.5rem;
+			}
+			.content-cta {
+				margin-top: 4rem;
+			}
+		}
+		&--grazie {
+			position: relative;
+			margin: 0 auto;
+			padding-top: 0;
+			[class*="swiper-button"] {
+				display: none;
+			}
+			@include breakpoint('tablet-portrait') {
+				[class*="swiper-button"] {
+					display: block;
+				}
+			}
+			.content-gallery-caption {
+				position: absolute;
+				z-index: 2;
+				top: -7vw;
+				right: 1rem;
+				font-size: 16vw;
+				font-weight: 400;
+				line-height: 0.5;
+				font-style: normal;
+				color: var(--greenish);
+				filter: invert(0.9);
+				text-align: right;
+				> span {
+					font-size: 50%;
+				}
+				@include breakpoint('tablet-portrait') {
+					font-size: 3rem;
+					top: -1.2rem;
+					right: -0.5rem;
+				}
+			}
+		}
 	}
 }
 
@@ -64,117 +182,14 @@ body {
 			color: var(--white-dirty);
 		}
 	}
-}
-.page-content {
-	.section-decoration {
-		max-width: 12rem;
-		margin: 0 auto;
-		padding: 2rem 1.5rem 1rem 1.5rem;
+	&-gallery {
+		position: relative;
+		width: calc(100vw - 3rem);
+		max-width: 36rem;
+		z-index: 1;
 		img {
 			width: 100%;
-			height: auto;
-		}
-	}
-	&--intro {
-		.content-title {
-			display: block;
-			font-weight: 400;
-			font-size: 3.6rem;
-			margin-bottom: 1rem;
-		}
-		.content-note {
-			font-size: 2rem;
-		}
-	}
-	&--quote {
-		.content-quote {
-			max-width: 20rem;
-			margin: 0 auto;
-			padding: 4rem 1.5rem 2rem 1.5rem;
-			&-cit {
-				position: relative;
-				font-size: 3rem;
-				font-style: italic;
-				margin: 0;
-				z-index: 1;
-				&::before,
-				&::after {
-					font-family: 'georgia';
-					font-size: 16rem;
-					font-style: normal;
-					color: var(--greenish);
-					position: absolute;
-					z-index: -1;
-					left: 50%;
-					margin-left: -3.2rem;
-				}
-				&::before {
-					top: -30%;
-					content: "“";
-				}
-				&::after {
-					top: 75%;
-					content: "”";
-				}
-			}
-			&-ref {
-				position: relative;
-				z-index: 2;
-				display: block;
-				margin-top: 3rem;
-				font-style: normal;
-				font-size: 1.2rem;
-			}
-		}
-	}
-	&--messa {
-		.content-subtitle {
-			margin-bottom: 1.5rem;
-		}
-		.content-note {
-			margin-top: 0.5rem;
-		}
-	}
-	&--festa {
-		.content-title {
-			margin-top: 0.5rem;
-			margin-bottom: 1.5rem;
-		}
-	}
-	&--dona {
-		.content-title {
-			margin-bottom: 1.5rem;
-		}
-		.content-cta {
-			margin-top: 4rem;
-		}
-	}
-	&--grazie {
-		position: relative;
-		max-width: 36rem;
-		margin: 0 auto;
-		img {
 			border-radius: 3px;
-		}
-		figcaption {
-			position: absolute;
-			top: -7vw;
-			right: -2vw;
-			font-size: 16vw;
-			font-weight: 400;
-			line-height: 0.5;
-			font-style: normal;
-			color: var(--greenish);
-			filter: invert(0.9);
-			text-align: right;
-			> span {
-				font-size: 50%;
-			}
-			@include breakpoint('tablet-portrait') {
-				font-size: 3rem;
-				top: -1.2rem;
-				right: -0.5rem;
-			}
 		}
 	}
 }
