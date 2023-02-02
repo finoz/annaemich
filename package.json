@@ -6,27 +6,26 @@
 		"build": "webpack --config webpack.config.js --mode=production"
 	},
 	"devDependencies": {
+		"css-loader": "^6.7.1",
+		"file-loader": "^6.2.0",
+		"mini-css-extract-plugin": "^2.6.1",
+		"resolve-url-loader": "^5.0.0",
+		"sass": "^1.55.0",
+		"sass-loader": "^13.1.0",
+		"svg-spritemap-webpack-plugin": "^4.5.0",
 		"webpack": "^5.74.0",
 		"webpack-cli": "^4.10.0",
-		"webpackbar": "^5.0.2",
-		"mini-css-extract-plugin": "^2.6.1",
-		"sass": "^1.55.0",
-		"css-loader": "^6.7.1",
-		"sass-loader": "^13.1.0",
-		"file-loader": "^6.2.0",
-		"resolve-url-loader": "^5.0.0",
-		"browser-sync-webpack-plugin": "^2.3.0",
-		"svg-spritemap-webpack-plugin": "^4.5.0"
+		"webpackbar": "^5.0.2"
 	},
 	"dependencies": {
-		"modern-normalize": "^1.1.0",
 		"lazysizes": "5.3.2",
 		"micromodal": "0.4.6",
 		"mitt": "3.0.0",
+		"modern-normalize": "^1.1.0",
 		"slugify": "^1.6.5",
+		"query-string": "8.1.0",
+		"swiper": "^8.0.6",
 		"tippy.js": "^6.3.7",
-		"use-hash-param": "0.2.4",
-		"what-input": "5.2.10",
-		"swiper": "^8.0.6"
+		"what-input": "5.2.10"
 	}
 }
