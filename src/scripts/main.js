@@ -21,9 +21,12 @@ class Setup {
   }
 
   init() {
-    console.log(this.log);
-    this.setCarousel();
-    this.setSongbook();
+    if (document.body.dataset.page === "canti") {
+      this.setSongbook();
+      this.overrideBack();
+    } else {
+      this.setCarousel();
+    }
   }
 
   setCarousel() {
@@ -99,6 +102,16 @@ class Setup {
 		</div></details>
 		`;
     return songMarkup;
+  }
+
+  overrideBack() {
+    document.addEventListener("touchstart", function (e) {
+      // is not near edge of view, exit
+      if (e.pageX > 10 && e.pageX < window.innerWidth - 10) return;
+      // prevent swipe to navigate gesture
+      alert("back");
+      e.preventDefault();
+    });
   }
 }
 
