@@ -2,6 +2,7 @@ import "../scss/main.scss";
 import "what-input";
 import Swiper, { A11y, Navigation, Pagination } from "swiper";
 import carouselUtils from "./utils/carouselUtils";
+import Finfilter from "./components/finfilter";
 
 class Setup {
   constructor() {
@@ -23,6 +24,8 @@ class Setup {
   init() {
     if (document.body.dataset.page === "canti") {
       this.setSongbook();
+      let finfilter = new Finfilter();
+      finfilter.init();
     } else {
       this.setCarousel();
     }
@@ -90,8 +93,10 @@ class Setup {
   }
 
   buildSongMarkup(song) {
+    let lowerTitle = song.title.toLowerCase();
+    let lowerAuthor = song.author.toLowerCase();
     let songMarkup = `
-			<details class="song" data-id="${song.id}" data-title="${song.title}" data-author="${song.author}">
+			<details class="song" data-id="${song.id}" data-title="${lowerTitle}" data-author="${lowerAuthor}">
 				<summary class="song-title">${song.title}</summary>
 				<div>`;
     if (song.author) {
