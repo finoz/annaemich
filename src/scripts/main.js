@@ -106,11 +106,13 @@ class Setup {
 
   overrideBack() {
     document.addEventListener("touchstart", function (e) {
-      // is not near edge of view, exit
-      if (e.pageX > 10 && e.pageX < window.innerWidth - 10) return;
-      // prevent swipe to navigate gesture
-      alert("back");
-      e.preventDefault();
+      if (document.querySelector(".song[open]")) {
+        // is not near edge of view, exit
+        if (e.pageX > 10 && e.pageX < window.innerWidth - 10) return;
+        // prevent swipe to navigate gesture
+        e.preventDefault();
+        document.querySelector(".song[open]").removeAttribute("open");
+      }
     });
   }
 }
