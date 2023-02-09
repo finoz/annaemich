@@ -108,9 +108,15 @@ class Setup {
     document.addEventListener("touchstart", function (e) {
       if (document.querySelector(".song[open]")) {
         // is not near edge of view, exit
-        if (e.pageX > 10 && e.pageX < window.innerWidth - 10) return;
+        if (e.pageX > 10 && e.pageX < window.innerWidth - 10) {
+          alert("non è possibile tornare indietro");
+          e.preventDefault();
+        } else {
+          e.preventDefault();
+          alert("non è possibile tornare indietro - 2");
+          return;
+        }
         // prevent swipe to navigate gesture
-        e.preventDefault();
         document.querySelector(".song[open]").removeAttribute("open");
       }
     });
