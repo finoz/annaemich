@@ -6,6 +6,10 @@ import carouselUtils from "./utils/carouselUtils";
 class Setup {
   constructor() {
     this.songbookUrl = "./songs/";
+    this.promises = [];
+    this.headers = new Headers();
+    this.headers.append("Content-Type", "application/json");
+    this.headers.append("Accept", "application/json");
     this.log = "Start finoz/annaemich";
   }
 
@@ -45,20 +49,39 @@ class Setup {
     });
   }
 
-  setSongbook() {
+  async setSongbook() {
     if (!window.songbook) return;
-    window.songbook.sort(function (a, b) {
+
+    let alphabeticSongbook = window.songbook.sort(function (a, b) {
       return a.title.localeCompare(b.title);
     });
-    window.songbook.forEach((song) => {
-      this.setSong(song);
+    alphabeticSongbook.forEach((song) => {
+      this.promises.push(
+        fetch(this.songbookUrl + song.id + ".html", {
+          mode: "cors",
+          headers: this.headers,
+        })
+          .then((response) => response.text())
+          .then((text) => {
+            song.text = text;
+          })
+      );
+    });
+    await Promise.all(this.promises).then((data) => {
+      document.body.querySelector(".loading").remove();
+      alphabeticSongbook.forEach((song) => {
+        this.setSong(song);
+      });
     });
   }
 
-  async setSong(song) {
+  async getSong(song) {
     let url = this.songbookUrl + song.id + ".html";
     const text = await this.getFetchedDom(url);
     song.text = text;
+  }
+
+  async setSong(song) {
     let songMarkup = this.buildSongMarkup(song);
     let songbook = document.body.querySelector(".page-content--canti");
     songbook.insertAdjacentHTML("beforeend", songMarkup);
@@ -76,14 +99,6 @@ class Setup {
 		</div></details>
 		`;
     return songMarkup;
-  }
-
-  // UTILS
-
-  async getFetchedDom(url) {
-    return fetch(url).then(function (response) {
-      return response.text();
-    });
   }
 }
 
